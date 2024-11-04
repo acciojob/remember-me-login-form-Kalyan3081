@@ -1,9 +1,10 @@
-//your JS code here. If required.
+// script.js
+
 document.addEventListener("DOMContentLoaded", function () {
   const loginForm = document.getElementById("loginForm");
   const existingButton = document.getElementById("existing");
 
-  // Check if user data exists in localStorage
+  // Check if user data exists in localStorage and display the existing user button if found
   const savedUsername = localStorage.getItem("username");
   const savedPassword = localStorage.getItem("password");
 
@@ -20,12 +21,12 @@ document.addEventListener("DOMContentLoaded", function () {
     const rememberMe = document.getElementById("checkbox").checked;
 
     if (rememberMe) {
-      // Save to localStorage
+      // Save credentials to localStorage
       localStorage.setItem("username", username);
       localStorage.setItem("password", password);
       existingButton.style.display = "block"; // Show existing user button
     } else {
-      // Remove from localStorage
+      // Remove credentials from localStorage
       localStorage.removeItem("username");
       localStorage.removeItem("password");
       existingButton.style.display = "none"; // Hide existing user button
@@ -33,7 +34,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     alert(`Logged in as ${username}.`);
 
-    // Optionally, you can clear the form fields after submission
+    // Optionally, clear form fields after submission
     // loginForm.reset();
   });
 
